@@ -1,6 +1,6 @@
 {
- "name": "Project Template",
- "description": "A template for ImJoy plugin Project.",
+ "name": "aotalplugins",
+ "description": "aotal plugins for use in my presentation",
  "version": "0.2.0",
  "uri_root": "",
  "plugins": [
