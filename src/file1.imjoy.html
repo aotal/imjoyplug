@@ -1,0 +1,52 @@
+﻿<docs lang="markdown">
+A plugin to visualize a point set array in ImJoy using the itk-vtk-viewer.
+</docs>
+
+<config lang="json">
+{
+  "name": "file1",
+  "type": "native-python",
+  "version": "0.1.0",
+  "description": "Ver MRI",
+  "tags": ["visualization", "itk-vtk-viewer"],
+  "ui": "",
+  "cover": "",
+  "inputs": null,
+  "outputs": null,
+  "flags": [],
+  "icon": "scatter_plot",
+  "api_version": "0.1.8",
+  "env": "",
+  "permissions": [],
+  "requirements": [],
+  "dependencies": []
+}
+</config>
+
+<script lang="python">
+import numpy as np
+from imjoy import api
+
+class ImJoyPlugin():
+    async def setup(self):
+        api.log('Plugin initialized')
+
+    async def run(self, ctx):
+        # make a point set array
+        gaussian_1_mean = [0.0, 0.0, 0.0]
+        gaussian_1_cov = [[1.0, 0.0, 0.0], [0.0, 2.0, 0.0], [0.0, 0.0, 0.5]]
+        number_of_points = 1000000
+        point_set_array = np.random.multivariate_normal(gaussian_1_mean,
+                                                        gaussian_1_cov,
+                                                        number_of_points)
+        point_set_array = point_set_array.astype('float32')
+        
+        # Create an ImJoy window and visualize the point set array
+        viewer = await api.createWindow(
+            src="https://kitware.github.io/itk-vtk-viewer/app/"
+        )
+        await viewer.setImage("data/imagen1.nrrd")
+
+api.export(ImJoyPlugin())
+</script>
+

@@ -22,7 +22,24 @@
    ],
    "dependencies": [],
    "uri": "aotalplugins/PointSetV.imjoy.html"
-  }
+  },
+  {
+    "name": "file1",
+    "type": "native-python",
+    "version": "0.1.1",
+    "api_version": "0.1.2",
+    "description": "Prueba de carga imagen",
+    "tags": [],
+    "ui": "UI for this plugin",
+    "inputs": null,
+    "outputs": null,
+    "flags": [],
+    "icon": null,
+    "env": null,
+    "requirements": [],
+    "dependencies": [],
+    "uri": "aotalplugins/file1.imjoy.html"
+   }
  ],
  "collections": []
 }
