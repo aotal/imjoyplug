@@ -23,7 +23,9 @@
    "api_version": "0.1.8",
    "env": "",
    "permissions": [],
-   "requirements": [],
+   "requirements": [
+    "numpy"
+   ],
    "dependencies": [],
    "uri": "PointSetV.imjoy.html"
   },
