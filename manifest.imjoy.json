@@ -5,11 +5,11 @@
  "uri_root": "",
  "plugins": [
   {
-   "name": "Template plugin",
+   "name": "pointset",
    "type": "native-python",
    "version": "0.1.1",
    "api_version": "0.1.2",
-   "description": "describe your plugin here.",
+   "description": "Prueba de imjoy plugin",
    "tags": [],
    "ui": "UI for this plugin",
    "inputs": null,
@@ -21,7 +21,7 @@
     "numpy"
    ],
    "dependencies": [],
-   "uri": "imjoy-plugins/templatePlugin.imjoy.html"
+   "uri": "aotalplugins/PointSetV.imjoy.html"
   }
  ],
  "collections": []
