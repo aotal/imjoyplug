@@ -18,7 +18,7 @@ A plugin to visualize a point set array in ImJoy using the itk-vtk-viewer.
   "api_version": "0.1.8",
   "env": "",
   "permissions": [],
-  "requirements": ["itk","requests"],
+  "requirements": ["itk"],
   "dependencies": []
 }
 </config>
@@ -26,16 +26,13 @@ A plugin to visualize a point set array in ImJoy using the itk-vtk-viewer.
 <script lang="python">
 from imjoy import api
 import itk
-import requests
+from urllib.request import urlretrieve
+
 #image=itk.imread("https://raw.githubusercontent.com/aotal/imjoyplug/master/data/imagen1.nrrd")
 # URL of the NRRD file in the GitHub repository
 url = "https://raw.githubusercontent.com/aotal/imjoyplug/master/data/imagen1.nrrd"
-
-# Fetch the file contents from the GitHub repository
-response = requests.get(url)
-
-# Load the NRRD image from the file contents
-image = itk.imread(response.content)
+urlretrieve(url, file_name)
+itk_image = itk.imread(file_name)
 
 class ImJoyPlugin():
     async def setup(self):
@@ -45,8 +42,8 @@ class ImJoyPlugin():
     async def run(self, ctx):
         # Create an ImJoy window and visualize the point set array
         
-        viewer = await api.createWindow(
-            src="https://kitware.github.io/itk-vtk-viewer/app/", data={"image": image})
+        viewer = await api.createWindow(src="https://kitware.github.io/itk-vtk-viewer/app/")
+        await viewer.setImage(itk_image)
 
 api.export(ImJoyPlugin())
 </script>
