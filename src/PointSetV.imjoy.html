@@ -41,7 +41,7 @@ class ImJoyPlugin():
                                                         number_of_points)
         point_set_array = point_set_array.astype('float32')
 
-        gaussian_2_mean = [0.0, 5.0, 0.0]
+        gaussian_2_mean = [0.0, 20.0, 0.0]
         gaussian_2_cov = [[1.0, 0.0, 0.0], [0.0, 2.0, 0.0], [0.0, 0.0, 0.5]]
         number_of_points = 1000000
         point_set_array_1 = np.random.multivariate_normal(gaussian_2_mean,
