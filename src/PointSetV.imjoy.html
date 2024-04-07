@@ -53,8 +53,7 @@ class ImJoyPlugin():
         viewer = await api.createWindow(
             src="https://kitware.github.io/itk-vtk-viewer/app/"
         )
-        await viewer.setPointSets([point_set_array])
-        await viewer.setPointSets([point_set_array_1])
+        await viewer.setPointSets([point_set_array,point_set_array_1])
 
 api.export(ImJoyPlugin())
 </script>
