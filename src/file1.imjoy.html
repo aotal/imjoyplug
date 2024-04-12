@@ -1,4 +1,4 @@
-﻿<docs lang="markdown">
+<docs lang="markdown">
 A plugin to visualize a point set array in ImJoy using the itk-vtk-viewer.
 </docs>
 
@@ -18,13 +18,15 @@ A plugin to visualize a point set array in ImJoy using the itk-vtk-viewer.
   "api_version": "0.1.8",
   "env": "",
   "permissions": [],
-  "requirements": ["itk"],
-  "dependencies": []
+  "requirements": [],
+  "dependencies": [],
+  "base_frame": "https://github.com/aotal/imjoyplug/"
 }
 </config>
 
 <script lang="python">
 from imjoy import api
+
 #import itk
 #from urllib.request import urlretrieve
 
@@ -37,14 +39,12 @@ from imjoy import api
 class ImJoyPlugin():
     async def setup(self):
         api.log('Plugin initialized')
-        
 
     async def run(self, ctx):
         # Create an ImJoy window and visualize the point set array
         
-        viewer = await api.createWindow(src="https://kitware.github.io/itk-vtk-viewer/app/")
-        #await viewer.setImage(itk_image)
+        viewer = await api.createWindow(
+            src="https://kitware.github.io/itk-vtk-viewer/app/", data={"image": "data/imagen1.nrrd"})
 
 api.export(ImJoyPlugin())
 </script>
-
