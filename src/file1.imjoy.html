@@ -1,4 +1,4 @@
-<docs lang="markdown">
+﻿<docs lang="markdown">
 A plugin to visualize a point set array in ImJoy using the itk-vtk-viewer.
 </docs>
 
@@ -44,7 +44,7 @@ class ImJoyPlugin():
         # Create an ImJoy window and visualize the point set array
         
         viewer = await api.createWindow(
-            src="https://kitware.github.io/itk-vtk-viewer/app/", data={"image": "data/imagen1.nrrd"})
+            src="https://oeway.github.io/itk-vtk-viewer/")#, data={"image": "data/imagen1.nrrd"})
 
 api.export(ImJoyPlugin())
 </script>
