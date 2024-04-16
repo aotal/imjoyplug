@@ -14,7 +14,7 @@
     "api_version": "0.1.8",
     "env": "",
     "permissions": [],
-    "requirements": ["pynrrd","numpy"],
+    "requirements": ["pynrrd","numpy","itkwasm-image-io","itkwasm-mesh-io","itk"],
     "dependencies": [],
     "base_frame": "https://github.com/aotal/imjoyplug/"
   }
@@ -42,6 +42,7 @@
   
       # Read the NRRD file using pynrrd
       data, header = nrrd.read("downloaded_file.nrrd")
+      image = itkwasm_image_io.imread("downloaded_file.nrrd")
   
       # Now you can work with the data and header
       print("Data shape:", data.shape)
@@ -58,7 +59,7 @@
           # Create an ImJoy window and visualize the point set array
           viewer = await api.createWindow(
               src="https://kitware.github.io/itk-vtk-viewer/app/")
-          await viewer.setImage(github_url)
+          await viewer.setImage(image)
   
   api.export(ImJoyPlugin())
   </script>
