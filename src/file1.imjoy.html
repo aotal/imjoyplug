@@ -48,8 +48,9 @@
           f.write(response.content)
   
       # Read the NRRD file using pynrrd
-      data, header = nrrd.read("downloaded_file.nrrd")
-      image = itkwasm_image_io.imread("downloaded_file.nrrd")
+      #data, header = nrrd.read("downloaded_file.nrrd")
+      #image = itkwasm_image_io.imread("downloaded_file.nrrd")
+      itk_image = itk.imread("downloaded_file.nrrd")
   
       # Now you can work with the data and header
       print("Data shape:", data.shape)
@@ -66,7 +67,7 @@
           # Create an ImJoy window and visualize the point set array
           viewer = await api.createWindow(type="itk-vtk-viewer",
               src="https://kitware.github.io/itk-vtk-viewer/app/")
-          await viewer.setImage(data)
+          await viewer.setImage(itk_image)
   
   api.export(ImJoyPlugin())
   </script>
