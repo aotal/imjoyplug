@@ -34,7 +34,8 @@
   import nrrd
   
   # URL of the NRRD file hosted on GitHub
-  github_url = "https://raw.githubusercontent.com/aotal/imjoyplug/master/data/imagen1.nrrd"
+  #github_url = "https://raw.githubusercontent.com/aotal/imjoyplug/master/data/imagen1.nrrd"
+  github_url ='https://data.kitware.com/api/v1/file/564a65d58d777f7522dbfb61/download/data.nrrd'
   
   # Download the file
   response = requests.get(github_url)
@@ -65,7 +66,7 @@
           # Create an ImJoy window and visualize the point set array
           viewer = await api.createWindow(type="itk-vtk-viewer",
               src="https://kitware.github.io/itk-vtk-viewer/app/")
-          await viewer.setImage('https://raw.githubusercontent.com/aotal/imjoyplug/master/data/imagen1.nrrd')
+          await viewer.setImage(github_url)
   
   api.export(ImJoyPlugin())
   </script>
