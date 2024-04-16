@@ -48,7 +48,7 @@
           f.write(response.content)
   
       # Read the NRRD file using pynrrd
-      #data, header = nrrd.read("downloaded_file.nrrd")
+      data, header = nrrd.read("downloaded_file.nrrd")
       #image = itkwasm_image_io.imread("downloaded_file.nrrd")
       itk_image = itk.imread("downloaded_file.nrrd")
   
