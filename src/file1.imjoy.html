@@ -58,7 +58,7 @@
           # Create an ImJoy window and visualize the point set array
           viewer = await api.createWindow(
               src="https://kitware.github.io/itk-vtk-viewer/app/")
-          await viewer.setImage(response.content)
+          await viewer.setImage(github_url)
   
   api.export(ImJoyPlugin())
   </script>
