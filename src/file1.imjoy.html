@@ -56,10 +56,9 @@
   
       async def run(self, ctx):
           # Create an ImJoy window and visualize the point set array
-          image_array = np.random.randint(0, 255, [50,500, 500], dtype='uint8')
           viewer = await api.createWindow(
               src="https://kitware.github.io/itk-vtk-viewer/app/")
-          await viewer.setImage(data)
+          await viewer.setImage('downloaded_file.nrrd')
   
   api.export(ImJoyPlugin())
   </script>
