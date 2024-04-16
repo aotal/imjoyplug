@@ -25,6 +25,8 @@
   import nrrd
   import numpy as np
   import itkwasm_image_io
+  from itkwidgets.trait_types import itkimage_to_json, itkimage_from_json
+  from itkwidgets._transform_types import to_itk_image
   
   
   import requests
@@ -35,6 +37,8 @@
   
   # Download the file
   response = requests.get(github_url)
+
+  api.registerCodec({'name': 'itkimage', 'type': itk.Image, 'encoder': itkimage_to_json, 'decoder': itkimage_from_json})
   
   if response.status_code == 200:
       # Save the downloaded file locally
