@@ -59,7 +59,7 @@
       async def run(self, ctx):
           # Create an ImJoy window and visualize the point set array
           viewer = await api.createWindow(type="itk-vtk-viewer",
-              src="https://kitware.github.io/itk-vtk-viewer/app/")
+              src="https://oeway.github.io/itk-vtk-viewer/")
           await viewer.setImage(image)
   
   api.export(ImJoyPlugin())
