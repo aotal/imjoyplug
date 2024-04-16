@@ -34,8 +34,9 @@
   import nrrd
   
   # URL of the NRRD file hosted on GitHub
-  github_url = "https://raw.githubusercontent.com/aotal/imjoyplug/master/data/imagen1.nrrd"
+  #github_url = "https://raw.githubusercontent.com/aotal/imjoyplug/master/data/imagen1.nrrd"
   #github_url ='https://data.kitware.com/api/v1/file/564a65d58d777f7522dbfb61/download/data.nrrd'
+  github_url = "https://raw.githubusercontent.com/aotal/imjoyplug/master/data/O2_Tube_Model.vtk"
   
   # Download the file
   response = requests.get(github_url)
@@ -44,13 +45,14 @@
   
   if response.status_code == 200:
       # Save the downloaded file locally
-      with open("downloaded_file.nrrd", "wb") as f:
+      with open("downloaded_file.vtk", "wb") as f:
           f.write(response.content)
   
       # Read the NRRD file using pynrrd
-      data, header = nrrd.read("downloaded_file.nrrd")
+      #data, header = nrrd.read("downloaded_file.nrrd")
       #image = itkwasm_image_io.imread("downloaded_file.nrrd")
-      itk_image = itk.imread("downloaded_file.nrrd")
+      #itk_image = itk.imread("downloaded_file.nrrd")
+      vtk_image = itk.imread("downloaded_file.vtk")
   
       # Now you can work with the data and header
       print("Data shape:", data.shape)
@@ -67,7 +69,7 @@
           # Create an ImJoy window and visualize the point set array
           viewer = await api.createWindow(type="itk-vtk-viewer",
               src="https://kitware.github.io/itk-vtk-viewer/app/")
-          await viewer.setImage(data)
+          await viewer.setImage(vtk_image)
   
   api.export(ImJoyPlugin())
   </script>
