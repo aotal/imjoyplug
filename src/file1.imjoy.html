@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<config lang="json">
   {
     "name": "file1",
@@ -64,3 +65,55 @@
   api.export(ImJoyPlugin())
   </script>
 
+=======
+﻿<docs lang="markdown">
+A plugin to visualize a point set array in ImJoy using the itk-vtk-viewer.
+</docs>
+
+<config lang="json">
+{
+  "name": "file1",
+  "type": "native-python",
+  "version": "0.1.0",
+  "description": "Ver MRI",
+  "tags": ["visualization", "itk-vtk-viewer"],
+  "ui": "",
+  "cover": "",
+  "inputs": null,
+  "outputs": null,
+  "flags": [],
+  "icon": "scatter_plot",
+  "api_version": "0.1.8",
+  "env": "",
+  "permissions": [],
+  "requirements": [],
+  "dependencies": [],
+  "base_frame": "https://github.com/aotal/imjoyplug/"
+}
+</config>
+
+<script lang="python">
+from imjoy import api
+
+#import itk
+#from urllib.request import urlretrieve
+
+#image=itk.imread("https://raw.githubusercontent.com/aotal/imjoyplug/master/data/imagen1.nrrd")
+# URL of the NRRD file in the GitHub repository
+#url = "https://raw.githubusercontent.com/aotal/imjoyplug/master/data/imagen1.nrrd"
+#urlretrieve(url, file_name)
+#itk_image = itk.imread(file_name)
+
+class ImJoyPlugin():
+    async def setup(self):
+        api.log('Plugin initialized')
+
+    async def run(self, ctx):
+        # Create an ImJoy window and visualize the point set array
+        
+        viewer = await api.createWindow(
+            src="https://oeway.github.io/itk-vtk-viewer/")#, data={"image": "data/imagen1.nrrd"})
+
+api.export(ImJoyPlugin())
+</script>
+>>>>>>> 5b69c8aab3e2376fd801219feb7b9da9a614f1a1
