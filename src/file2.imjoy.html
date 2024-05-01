@@ -34,8 +34,7 @@
   class ImJoyPlugin {
     async setup() {
       const container = document.querySelector('#viewer');
-      this.viewer = await itkVtkViewer.createViewerFromLocalFiles(container,rotate: false);
-      
+      this.viewer = await itkVtkViewer.createViewerFromLocalFiles(container);
       this.loadExample('https://raw.githubusercontent.com/aotal/imjoyplug/master/data/imagen1.nrrd');
     }
   
