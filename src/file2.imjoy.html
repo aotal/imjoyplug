@@ -30,32 +30,35 @@
   }
   </config>
   
-  <script lang="javascript">
-class ImJoyPlugin {
-  async setup() {
-    const container = document.querySelector('#viewer');
-    this.viewer = await itkVtkViewer.createViewerFromLocalFiles(container);
-    // Llama directamente a la función loadExample() al cargar el plugin
-    this.loadExample();
-  }
-
-  async showVolume(url){
-    const container = document.querySelector('#viewer');
-    this.viewer = await itkVtkViewer.createViewerFromUrl(container, url);
-  }
-
-  async run(ctx) {
-    if(ctx.data.loadExample){
-      window.loadExample = ctx.data.loadExample;
+ <script lang="javascript">
+  class ImJoyPlugin {
+    async setup() {
+      const container = document.querySelector('#viewer');
+      this.viewer = await itkVtkViewer.createViewerFromLocalFiles(container);
+      this.loadExample('https://raw.githubusercontent.com/aotal/imjoyplug/master/data/imagen1.nrrd');
+    }
+  
+    async showVolume(url){
+      const container = document.querySelector('#viewer');
+      this.viewer = await itkVtkViewer.createViewerFromUrl(container, url);
+    }
+  
+    async loadExample(url){
+      await this.showVolume(url);
+    }
+  
+    async run(ctx) {
+      if(ctx.data.loadExample){
+        window.loadExample = ctx.data.loadExample;
+      }
     }
   }
-
-  // Define la función loadExample() aquí
-  loadExample() {
-    const url = 'https://data.kitware.com/api/v1/file/564a65d58d777f7522dbfb61/download/data.nrrd';
-    this.showVolume(url);
-  }
-}
-
-api.export(new ImJoyPlugin())
+  
+  api.export(new ImJoyPlugin())
+</script>
+  
+<window lang="html">
+  <div id="viewer">
+  </div>
+</window>
   
