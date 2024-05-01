@@ -1,4 +1,36 @@
-﻿<script lang="javascript">
+﻿<docs lang="markdown">
+
+  # ITK/VTK Viewer
+
+  2D / 3D web image, mesh, and point set viewer using itk.js and vtk.js 
+
+  https://kitware.github.io/itk-vtk-viewer/index.html
+  
+  </docs>
+  
+  <config lang="json">
+  {
+    "name": "itk-vtk-viewer",
+    "type": "window",
+    "tags": [],
+    "ui": "",
+    "version": "0.2.0",
+    "cover": "",
+    "description": "A image/volume, mesh, and point set viewer powered by ITK and VTK.",
+    "icon": "extension",
+    "inputs": null,
+    "outputs": null,
+    "api_version": "0.1.6",
+    "env": "",
+    "permissions": [],
+    "requirements": ["https://unpkg.io/itk-vtk-viewer@9.10.3/dist/itkVtkViewerCDN.js"],
+    "dependencies": [],
+    "defaults": {"w": 30, "h": 20},
+    "cover": "https://dl.dropbox.com/s/wujfu7l7hacl872/itk-vtk-viewer-0.1.0.gif"
+  }
+  </config>
+  
+  <script lang="javascript">
   class ImJoyPlugin {
     async setup() {
       const container = document.querySelector('#viewer');
