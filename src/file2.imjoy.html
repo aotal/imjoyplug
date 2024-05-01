@@ -1,45 +1,37 @@
 ﻿<config lang="json">
-    {
-      "name": "file2",
-      "type": "native-python",
-      "version": "0.1.0",
-      "description": "Ver MRI",
-      "tags": ["visualization", "itk-vtk-viewer"],
-      "ui": "",
-      "cover": "",
-      "inputs": null,
-      "outputs": null,
-      "flags": [],
-      "icon": "scatter_plot",
-      "api_version": "0.1.8",
-      "env": "",
-      "permissions": [],
-      "requirements": ["pynrrd","numpy","itkwasm-image-io","itkwasm-mesh-io","itk","itkwidgets"],
-      "dependencies": [],
-      "base_frame": "https://github.com/aotal/imjoyplug/"
-    }
-    </config>
-    
-    <script lang="python">
-    from imjoy import api
-    import imageio
-
-    class ImJoyPlugin():
-        async def setup(self):
-            pass
-
-        async def run(self, ctx):
-            viewer = await api.createWindow(src="https://kaibu.org/#/app")
-
-        # read a sample image
-        image = imageio.imread('imageio:chelsea.png')
-
-        # view image
-        await viewer.view_image(image, type="itk-vtk", name="Chelsea")
-
-        # you can also display an 3D color image (with arbitrary number of channels)
-        # image = np.random.randint(0, 155, size=[80, 100, 100, 5]).astype('uint8')
-        # await viewer.view_image(image, type="itk-vtk", name="3d-color-image")
-
-api.export(ImJoyPlugin())
-</script>
+{
+  "name": "itk-vtk-viewer",
+  "version": "0.0.0-semantically-release",
+  "description": "2D / 3D web image, mesh, and point set viewer using itk-wasm and vtk.js ",
+  "type": "rpc-window",
+  "docs": "https://kitware.github.io/itk-vtk-viewer/docs/imjoy.html",
+  "authors": [
+    "Matt McCormick",
+    "Wei Ouyang"
+  ],
+  "license": "3-Clause BSD License",
+  "labels": [
+    "visualization",
+    "itk",
+    "vtk",
+    "image",
+    "mesh",
+    "geometry",
+    "point set",
+    "2D",
+    "3D"
+  ],
+  "icon": "https://kitware.github.io/itk-vtk-viewer/app/favicon-32x32.png",
+  "cover": [
+    "https://kitware.github.io/itk-vtk-viewer/docs/howToUse.jpg",
+    "https://kitware.github.io/itk-vtk-viewer/docs/imjoy.png"
+  ],
+  "id": "ur6701hbyw1714545474226",
+  "target_origin": "*",
+  "allow_execution": false,
+  "dedicated_thread": false,
+  "lang": "javascript",
+  "api_version": "0.2.3",
+  "base_frame": "https://kitware.github.io/itk-vtk-viewer/app/"
+}
+</config>
